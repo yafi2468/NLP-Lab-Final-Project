@@ -1,37 +1,42 @@
-# Voice Chatbot UAS – STT, Gemini LLM, TTS Integration
+# 🎙️ Voice Assistant Pro: Code-Switching Speech-to-Speech System
 
-Proyek UAS ini merupakan aplikasi chatbot berbasis suara yang memungkinkan pengguna berbicara langsung melalui antarmuka web. Sistem akan mengenali suara pengguna, mengubahnya menjadi teks (Speech-to-Text), memprosesnya menggunakan model bahasa besar (Gemini API), lalu mengubah hasil jawabannya kembali menjadi suara (Text-to-Speech).
+## 📝 Deskripsi Proyek
+Proyek Akhir (UAS) Praktikum Natural Language Processing (NLP) ini adalah implementasi sistem **multilingual speech-to-speech end-to-end** yang dirancang secara individu. Sistem ini mampu menerima input ujaran berupa pencampuran bahasa (*code-switching*) antara **Bahasa Indonesia, Inggris, dan Arab**, memprosesnya melalui serangkaian arsitektur NLP, lalu menghasilkan output berupa respons suara kembali dari sistem secara natural.
 
-## 📌 Fitur Utama
-- 🎙️ Speech-to-Text (STT) menggunakan `whisper.cpp` dari OpenAI.
-- 🧠 LLM Integration menggunakan Google Gemini API untuk menghasilkan respons dalam Bahasa Indonesia.
-- 🔊 Text-to-Speech (TTS) menggunakan model Coqui TTS (Indonesian TTS).
-- 🧪 Antarmuka pengguna interaktif berbasis `Gradio` untuk pengujian langsung dari browser.
+Fokus utama dari proyek ini adalah penyusunan korpus *speech code-switching* yang terkontrol, konsisten, serta evaluasi performa *pipeline* secara menyeluruh.
 
-## 🗂️ Struktur Proyek
-```
-voice_chatbot_project/
-│
+---
+
+## ⚙️ Alur Arsitektur & Pipeline
+Sistem ini mengintegrasikan empat lapisan utama dalam satu siklus percakapan utuh:
+`Speech Input` ➡️ `STT` ➡️ `Text Processing & Normalization` ➡️ `LLM` ➡️ `TTS` ➡️ `Speech Output`
+
+1. **STT (Speech-to-Text):** Menggunakan implementasi lokal `whisper.cpp` (model *large-v3-turbo*) untuk mentranskripsi ujaran *code-switching* ke dalam teks.
+2. **Text Processing (G2P):** Mengubah teks abjad biasa menjadi simbol fonetik International Phonetic Alphabet (IPA) secara dinamis agar kompatibel dengan kamus vokal lokal.
+3. **LLM (Large Language Model):** Memanfaatkan **Google Gemini API** melalui Google Gen AI SDK resmi untuk menghasilkan respons kontekstual yang cerdas berdasarkan *system prompt* eksplisit.
+4. **TTS (Text-to-Speech):** Menggunakan **Coqui TTS** dengan model *Indonesian-TTS VITS* lokal (suara "wibowo") untuk menyintesis kembali respons teks menjadi suara balasan.
+
+Sistem mendukung dua mode operasional utama:
+* **`preserve`**: Merespons dengan mempertahankan pola pencampuran bahasa asli (*code-switching*).
+* **`normalize`**: Menormalisasi bahasa ke bentuk yang lebih seragam dan formal.
+
+---
+
+## 📂 Struktur Folder Proyek
+```text
+voice-cs-system/
 ├── app/
-│   ├── main.py            # Endpoint utama FastAPI
-│   ├── llm.py             # Integrasi Gemini API
-│   ├── stt.py             # Transkripsi suara (whisper.cpp)
-│   ├── tts.py             # TTS dengan Coqui
-│   └── whisper.cpp/       # Hasil clone whisper.cpp
-│   └── coqui_utils/       # Model dan config Coqui TTS
-│
+│   ├── main.py              # RestAPI Endpoint (FastAPI)
+│   ├── stt.py               # Transkripsi Whisper.cpp
+│   ├── llm.py               # Pemrosesan Konteks Gemini API
+│   └── tts.py               # Sintesis Suara Coqui TTS (Native API)
+├── coqui_tts/               # Aset lokal model TTS ("wibowo")
+├── data/
+│   └── corpus/              # Dataset rekaman audio sampel (.wav)
 ├── gradio_app/
-│   └── app.py             # Frontend dengan Gradio
-│
-├── .env                   # Menyimpan Gemini API Key
-├── requirements.txt       # Daftar dependensi Python
-```
-
-## 📚 Catatan
-- Semua file audio menggunakan format `.wav`.
-- Untuk menghasilkan fonem seperti `dəˈnɡan`, teks dari Gemini harus dikonversi ke fonetik.
-- Disarankan menggunakan model Whisper: `ggml-large-v3-turbo`.
-- Gunakan speaker: `wibowo` dari model Coqui v1.2.
-
-## 👨‍💻 Dibuat Untuk
-Proyek UAS mata kuliah *Pemrosesan Bahasa Alami* — Semester Genap 2024/2025.
+│   └── app.py               # Antarmuka Web (Gradio Light UI Pro)
+├── models/
+│   └── whisper.cpp/         # Repositori & file binari model Whisper
+├── analisis_pipeline.py     # Script otomatis pengujian seluruh korpus (WER & CER)
+├── requirements.txt         # Daftar dependensi library Python
+└── .env                     # File rahasia API Key Gemini (Diabaikan oleh Git)
