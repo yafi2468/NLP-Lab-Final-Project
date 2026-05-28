@@ -1,4 +1,4 @@
-# 🎙️ Voice Assistant Pro: Code-Switching Speech-to-Speech System
+# 🎙️ Wibowo.AI: Code-Switching Speech-to-Speech System
 
 ## 📝 Deskripsi Proyek
 Proyek Akhir (UAS) Praktikum Natural Language Processing (NLP) ini adalah implementasi sistem **multilingual speech-to-speech end-to-end** yang dirancang secara individu. Sistem ini mampu menerima input ujaran berupa pencampuran bahasa (*code-switching*) antara **Bahasa Indonesia, Inggris, dan Arab**, memprosesnya melalui serangkaian arsitektur NLP, lalu menghasilkan output berupa respons suara kembali dari sistem secara natural.
