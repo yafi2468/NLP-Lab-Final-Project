@@ -1,0 +1,50 @@
+[
+  {
+    "id": "91a3cfa9-9bd1-444a-8bca-86b2bfa2cdc4",
+    "timestamp": "2026-05-28T05:49:53.959327",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_ab657caf-8108-4cc2-afe6-9658d44943ba.wav"
+  },
+  {
+    "id": "2c03f4e3-0bea-4bdb-8c0a-4921e8c2bdc7",
+    "timestamp": "2026-05-28T06:05:48.296128",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya bisa membantu Anda mencari jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya dapat memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_c6f4a8df-47d1-457d-b265-e35474a79d78.wav"
+  },
+  {
+    "id": "d1b411a0-d385-43e2-9122-5c3de825dcf6",
+    "timestamp": "2026-05-28T06:11:28.431522",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencari jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_3f604046-748d-4c29-a8b4-2b8e05ee938d.wav"
+  },
+  {
+    "id": "acd3018f-3328-476a-90a5-9f84b04724c9",
+    "timestamp": "2026-05-28T06:17:59.724066",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya dapat memberikan rekomendasi terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_6f779a85-c11f-4b56-990f-d466f6c0c607.wav"
+  },
+  {
+    "id": "bc0eb326-cb7b-49ed-add9-d31ab81d93eb",
+    "timestamp": "2026-05-28T06:19:52.836215",
+    "mode": "normalize",
+    "transcript": " Hello, hello, hello, why the moon is blue?\n",
+    "response": "Fenomena *blue moon* biasanya merujuk pada munculnya bulan purnama kedua dalam satu bulan kalender. Namun, bulan bisa tampak berwarna biru jika terdapat partikel debu atau asap di atmosfer yang menyaring cahaya merah.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_c7bfbbef-d41d-413b-bd1c-28b863f2055b.wav"
+  },
+  {
+    "id": "4b8f76ad-5902-4c05-bfd3-aec6651db8bf",
+    "timestamp": "2026-05-28T06:21:00.144178",
+    "mode": "normalize",
+    "transcript": " Kenapa bumi itu bulat?\n",
+    "response": "Bumi berbentuk bulat karena adanya gaya gravitasi yang menarik seluruh materi ke arah pusat massanya secara merata dari segala arah. Proses ini terjadi selama miliaran tahun hingga membentuk bola yang hampir sempurna.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_02039f83-e41b-41be-a00b-7ed3f7f37573.wav"
+  }
+]

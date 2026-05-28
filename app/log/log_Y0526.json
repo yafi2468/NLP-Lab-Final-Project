@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2288afa2-d14b-4bd2-aa01-9bdef2694eb1",
+    "timestamp": "2026-05-26T14:13:49.858064",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_45042308-393d-438d-bca8-23d3cbb377a9.wav"
+  },
+  {
+    "id": "1e10f6fc-ec48-41a2-9b08-b875ceea9b9b",
+    "timestamp": "2026-05-26T14:16:32.946120",
+    "mode": "normalize",
+    "transcript": " Hello, hello, hello, hello.\n",
+    "response": "Halo! Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_10eef746-68db-4a1d-98fe-bfe4709fcedd.wav"
+  },
+  {
+    "id": "6465c876-91b0-4054-8c30-0f6c357a4226",
+    "timestamp": "2026-05-26T14:22:52.146308",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_eed0328a-4da4-4584-b992-e5ca20a896c3.wav"
+  },
+  {
+    "id": "cd66ac97-2a72-4bb6-98b5-1844f3335854",
+    "timestamp": "2026-05-26T14:26:52.719991",
+    "mode": "normalize",
+    "transcript": " Hello, why the moon is so dark?\n",
+    "response": "Bulan sebenarnya tidak menghasilkan cahaya sendiri, melainkan hanya memantulkan cahaya dari matahari. Selain itu, permukaannya memang cukup gelap karena tertutup debu dan batuan yang tidak memantulkan banyak cahaya.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_26b62927-512a-47fb-adb1-9973c19e0197.wav"
+  },
+  {
+    "id": "235cbed7-f3f9-4425-8b93-8918ec6910f1",
+    "timestamp": "2026-05-26T14:31:20.695893",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya bisa membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya dapat memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_e50d0411-dda0-4fba-9c6b-4e07f584a33b.wav"
+  },
+  {
+    "id": "f7ad5761-1560-4c25-9c1c-850b9abdf351",
+    "timestamp": "2026-05-26T14:35:01.992573",
+    "mode": "normalize",
+    "transcript": " Why is the earth blue?\n",
+    "response": "Bumi tampak biru karena sebagian besar permukaannya tertutup oleh lautan yang luas. Air laut menyerap warna lain dari cahaya matahari dan hanya memantulkan warna biru kembali ke luar angkasa.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_54259550-d159-4f97-922f-fdf153be44cb.wav"
+  },
+  {
+    "id": "e5190fb0-095f-4118-8225-bab07fde9e92",
+    "timestamp": "2026-05-26T14:51:28.218815",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya dapat memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_ea7c34a8-ac87-481e-a564-2a29bc60aa97.wav"
+  },
+  {
+    "id": "dd8ca663-3528-4afe-b5fe-a22aeb66b0d8",
+    "timestamp": "2026-05-26T14:53:12.529426",
+    "mode": "normalize",
+    "transcript": " Hello, hello, hello, why the earth is dark?\n",
+    "response": "Bumi mengalami kegelapan karena rotasi pada porosnya. Saat suatu bagian Bumi membelakangi matahari, bagian tersebut akan mengalami waktu malam.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_5a452f12-1f7b-4620-badd-f49e00d61faa.wav"
+  }
+]

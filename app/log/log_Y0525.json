@@ -1,0 +1,58 @@
+[
+  {
+    "id": "aec3d338-cfc6-4ab2-99be-a939adc32f50",
+    "timestamp": "2026-05-25T16:15:46.837054",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_b6b00056-d5d2-4050-94f5-ab9f23e6fb82.wav"
+  },
+  {
+    "id": "62a03494-b74a-423a-a799-d49e3324d953",
+    "timestamp": "2026-05-25T16:19:29.699463",
+    "mode": "normalize",
+    "transcript": " Hello, my name is Fardy Zane.\n",
+    "response": "Halo, Fardy Zane! Senang berkenalan dengan Anda. Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_0465a9f0-9ba2-4ec0-a4b0-b46f8a17392c.wav"
+  },
+  {
+    "id": "d2775e55-79b1-4c3d-92bc-1249e3fb4d85",
+    "timestamp": "2026-05-25T18:46:04.420759",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_eef2be93-aad5-4301-99b8-c41812a43761.wav"
+  },
+  {
+    "id": "9800416e-2886-4697-b548-07ecf01a9d47",
+    "timestamp": "2026-05-25T18:49:27.531710",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu Anda mencari jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya dapat memberikan pilihan yang paling sesuai.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_5fe2f74a-430b-4531-b28c-b417acdbc70f.wav"
+  },
+  {
+    "id": "c02d90d5-f61f-4bd4-9a83-baa2fcd2e7aa",
+    "timestamp": "2026-05-25T18:51:26.970446",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_357e0879-3617-470e-ae0e-ce25b34817de.wav"
+  },
+  {
+    "id": "8bbeefd1-2e52-4417-8de5-e6111460b6e9",
+    "timestamp": "2026-05-25T18:59:38.862676",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_ea7b8380-ea1c-4429-8db0-b45da4c54629.wav"
+  },
+  {
+    "id": "ebb3fd1c-9a2e-4bc8-8ec2-5541a079f2d0",
+    "timestamp": "2026-05-25T19:00:49.365531",
+    "mode": "normalize",
+    "transcript": " Hello, my name is Ikram.\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_5fbbe128-e5bc-4ee4-bec0-36dcbb1786d9.wav"
+  }
+]

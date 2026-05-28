@@ -1,0 +1,74 @@
+[
+  {
+    "id": "a9aa7f79-8d77-4d51-8ef3-ef029b15581d",
+    "timestamp": "2026-05-24T19:47:22.994584",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya bisa membantu mencari jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya dapat memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_f74c888e-ed5f-458e-87b6-abf3c661a94c.wav"
+  },
+  {
+    "id": "eb6179e1-abb3-4aa8-b47d-cd37547c8601",
+    "timestamp": "2026-05-24T19:56:34.471123",
+    "mode": "normalize",
+    "transcript": " Halo coba beritahu saya cuaca hari ini\n",
+    "response": "Mohon informasikan lokasi atau kota Anda saat ini agar saya dapat memberikan informasi cuaca yang akurat. Saya akan segera membantu Anda setelah mengetahuinya.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_7d62a30a-d596-488f-9a21-a951ba31cd03.wav"
+  },
+  {
+    "id": "caba4037-5d12-409d-8811-b05688d49f65",
+    "timestamp": "2026-05-24T20:06:21.341569",
+    "mode": "preserve",
+    "transcript": " Oh Halo coba beritahu saya cuaca hari ini bro\n",
+    "response": "[ERROR] 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_5908df67-ad27-46fe-9561-7acff839d928.wav"
+  },
+  {
+    "id": "b43cf6dd-7fbb-4984-873f-7b5bfdbb7e44",
+    "timestamp": "2026-05-24T20:08:34.915802",
+    "mode": "preserve",
+    "transcript": " Hello, I'm going to show you today\n",
+    "response": "Hello! Silakan, please go ahead, I am ready to see it. Apa yang ingin Anda tunjukkan hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_e46bfb40-7423-423a-8de6-3c4f4aa1b21b.wav"
+  },
+  {
+    "id": "b5a32793-847b-4a56-8c3f-e661c1539bfd",
+    "timestamp": "2026-05-24T20:09:33.380344",
+    "mode": "normalize",
+    "transcript": " Halo, coba beritahu saya cuaca hari ini.\n",
+    "response": "Mohon informasikan kota atau lokasi Anda saat ini agar saya dapat memberikan informasi cuaca yang akurat. Saya akan segera mengeceknya setelah Anda memberikan lokasinya.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_4018df35-4177-4727-b7e0-4fc2505ea625.wav"
+  },
+  {
+    "id": "78551b36-9122-4e7f-994b-52f2eb581100",
+    "timestamp": "2026-05-24T23:16:33.764607",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya bisa membantu mencari jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan Anda agar saya dapat memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_7a427d01-dd3c-4cd4-8d5c-d045f9fc6f2a.wav"
+  },
+  {
+    "id": "3a6463e7-3839-456f-9bc7-82ce9c8bfd02",
+    "timestamp": "2026-05-24T23:18:53.466197",
+    "mode": "normalize",
+    "transcript": " Salam kenal aku Afan\n",
+    "response": "Salam kenal juga, Afan! Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_56741fc4-5f93-4ebb-80f9-2d980030a802.wav"
+  },
+  {
+    "id": "01d3c4c2-3720-47f0-87bc-fb20a555d57d",
+    "timestamp": "2026-05-24T23:26:07.194738",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "[ERROR] [Errno 11001] getaddrinfo failed",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_d08e4460-aa91-47a5-9583-2f62ff93bdcf.wav"
+  },
+  {
+    "id": "2ce0a27b-ecda-434e-99a0-390c0fce20c1",
+    "timestamp": "2026-05-24T23:27:23.889060",
+    "mode": "normalize",
+    "transcript": " Salam Kenal, I'm Guwe\n",
+    "response": "Salam kenal, Guwe! Senang berkenalan dengan Anda. Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_d44685db-5c57-499b-83ac-e83f3fb34166.wav"
+  }
+]
