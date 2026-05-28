@@ -34,9 +34,9 @@ voice-cs-system/
 ├── data/
 │   └── corpus/              # Dataset rekaman audio sampel (.wav)
 ├── gradio_app/
-│   └── app.py               # Antarmuka Web (Gradio Light UI Pro)
+│   └── app.py               # Antarmuka Web
 ├── models/
 │   └── whisper.cpp/         # Repositori & file binari model Whisper
 ├── analisis_pipeline.py     # Script otomatis pengujian seluruh korpus (WER & CER)
 ├── requirements.txt         # Daftar dependensi library Python
-└── .env                     # File rahasia API Key Gemini (Diabaikan oleh Git)
+└── .env                     
