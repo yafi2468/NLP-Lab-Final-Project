@@ -1,0 +1,66 @@
+[
+  {
+    "id": "843abdf4-23b2-4ec6-8bd8-58ca003833ac",
+    "timestamp": "2026-05-29T00:48:39.222181",
+    "mode": "normalize",
+    "transcript": " I will book flight to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencari jadwal penerbangan ke Jeddah. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_2a3a3fc8-6da0-4757-9759-a97f0d276564.wav"
+  },
+  {
+    "id": "4c503f50-15d9-40ca-a24b-11e4d120c587",
+    "timestamp": "2026-05-29T00:54:56.058898",
+    "mode": "normalize",
+    "transcript": " Hello, hello, hello, hello, hello.\n",
+    "response": "Halo! Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_0692a579-a1cf-4684-8b59-d70616ee73b9.wav"
+  },
+  {
+    "id": "eb5a3eb9-8b63-43d8-b6a4-e5246bb26e3d",
+    "timestamp": "2026-05-29T02:11:10.906005",
+    "mode": "normalize",
+    "transcript": " Hello, how are you in Jakarta?\n",
+    "response": "Halo! Kabar saya baik, terima kasih sudah bertanya. Ada yang bisa saya bantu hari ini?",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_90b2c4ad-2e66-4416-8f9a-5c1dc91042f7.wav"
+  },
+  {
+    "id": "711df4e8-ea3e-4c06-b7dd-63f639ddd714",
+    "timestamp": "2026-05-29T02:13:07.578272",
+    "mode": "normalize",
+    "transcript": " Why are the earth's blue?\n",
+    "response": "Bumi tampak biru karena sebagian besar permukaannya ditutupi oleh samudra yang luas. Air laut menyerap warna lain dari cahaya matahari dan memantulkan warna biru kembali ke luar angkasa.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_bcd1b17f-e778-4366-9df1-7a508d839be9.wav"
+  },
+  {
+    "id": "61517e9a-a6d6-463e-8404-f4ba970a0b30",
+    "timestamp": "2026-05-29T02:14:28.302687",
+    "mode": "normalize",
+    "transcript": " Why are the moon's blue?\n",
+    "response": "Bulan sebenarnya tidak berwarna biru secara alami. Namun, ia bisa tampak biru jika terdapat partikel debu atau asap di atmosfer yang menyaring cahaya merah.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_ba74935e-bd82-44b9-9d91-d5163f676e1c.wav"
+  },
+  {
+    "id": "a380ce88-7129-4e96-845d-1dd5f2e8ede8",
+    "timestamp": "2026-05-29T02:16:51.031163",
+    "mode": "normalize",
+    "transcript": " Aku mau book flight ke Jeddah minggu depan. Bisa bantu schedule?\n",
+    "response": "Tentu, saya dapat membantu mencari jadwal penerbangan ke Jeddah. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya bisa memberikan rekomendasi terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_f1acaef2-0100-4db1-9056-cfff031c612d.wav"
+  },
+  {
+    "id": "399c46ce-be0b-46da-92c4-49c636474ea3",
+    "timestamp": "2026-05-29T02:48:21.192893",
+    "mode": "normalize",
+    "transcript": " I want to travel to Jeddah next week. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk minggu depan. Mohon informasikan kota keberangkatan dan tanggal pastinya agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_57d8f6e3-0671-4b8a-bb8a-881291b1925d.wav"
+  },
+  {
+    "id": "8205ad0d-8142-44fb-96fe-a3020d9ccf1c",
+    "timestamp": "2026-05-29T03:09:50.018392",
+    "mode": "normalize",
+    "transcript": " I want to book flight tomorrow to Jeddah. Can you help schedule?\n",
+    "response": "Tentu, saya dapat membantu mencarikan jadwal penerbangan ke Jeddah untuk besok. Mohon informasikan kota keberangkatan Anda agar saya bisa memberikan pilihan terbaik.",
+    "audio_output": "C:\\Users\\n6nrc\\AppData\\Local\\Temp\\tts_7e0fe23c-7748-436b-ad74-9e11ae9c482b.wav"
+  }
+]

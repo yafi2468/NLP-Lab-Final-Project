@@ -12,170 +12,172 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 AUDIO_DIR = os.path.join(BASE_DIR, "data", "corpus", "audio")
 REFERENCE_FILE = os.path.join(BASE_DIR, "data", "corpus", "transcripts", "reference.json")
 RESULTS_DIR = os.path.join(BASE_DIR, "data", "results")
-CHECKPOINT_FILE = os.path.join(RESULTS_DIR, "checkpoint.json")
+
 os.makedirs(RESULTS_DIR, exist_ok=True)
-
-def load_checkpoint():
-    if os.path.exists(CHECKPOINT_FILE):
-        with open(CHECKPOINT_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return []
-
-def save_checkpoint(results):
-    with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)    
 
 def load_reference():
     with open(REFERENCE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def get_utterance_id(filename):
-    parts = os.path.splitext(filename)[0].split("_")
-    if len(parts) >= 2:
-        raw_id = parts[1]
-        # normalize: audio01 -> audio1
-        if raw_id.startswith("audio"):
-            number = raw_id.replace("audio", "").lstrip("0") or "0"
-            return f"audio{number}"
+def ekstrak_id_ujaran(filename):
+    """
+    Ekstrak ID tanpa peduli NPM siapa pun.
+    Mengubah '2360_audio01.wav' atau '2359_audio1.wav' menjadi 'audio1'.
+    """
+    try:
+        bagian = filename.split('_')
+        if len(bagian) >= 2:
+            raw_id = bagian[1].replace(".wav", "") 
+            angka = raw_id.replace("audio", "")
+            angka_bersih = str(int(angka)) # Menghilangkan angka 0 di depan (01 -> 1)
+            return f"audio{angka_bersih}"
+    except Exception:
+        return None
     return None
 
-def run_pipeline(audio_path, mode):
-    with open(audio_path, "rb") as f:
-        file_bytes = f.read()
-
-    # STT
-    t0 = time.time()
-    transcript = transcribe_speech_to_text(file_bytes, ".wav")
-    stt_latency = time.time() - t0
-
-    # LLM
-    t1 = time.time()
-    response_text = generate_response(transcript, mode)
-    llm_latency = time.time() - t1
-
-    # TTS
-    t2 = time.time()
-    audio_output = transcribe_text_to_speech(response_text)
-    tts_latency = time.time() - t2
-
-    total_latency = time.time() - t0
-
-    return {
-        "transcript": transcript.strip(),
-        "response": response_text,
-        "audio_output": audio_output,
-        "stt_latency": round(stt_latency, 2),
-        "llm_latency": round(llm_latency, 2),
-        "tts_latency": round(tts_latency, 2),
-        "total_latency": round(total_latency, 2)
-    }
-
 def main():
-    reference = load_reference()
-    audio_files = sorted([
-        f for f in os.listdir(AUDIO_DIR) if f.endswith(".wav")
-    ])
-
-    results = load_checkpoint()
-    processed = set((r["filename"], r["mode"]) for r in results if "error" not in r or r.get("transcript"))
-    wer_scores = []
-    cer_scores = []
-
-    print(f"Total audio files: {len(audio_files)}")
-    print("=" * 60)
-
+    print("[INFO] Memulai Evaluasi Pipeline Massal...")
+    
+    ground_truth = load_reference()
+    print(f"[INFO] Berhasil memuat {len(ground_truth)} skrip transkrip asli.")
+    
+    audio_files = [f for f in os.listdir(AUDIO_DIR) if f.endswith(".wav")]
+    print(f"[INFO] Menemukan {len(audio_files)} file audio di folder.\n")
+    print(f"[WARNING] Perkiraan waktu eksekusi: {len(audio_files) * 30 / 60:.1f} menit.\n")
+    
+    hasil_evaluasi = []
+    wer_list = []
+    cer_list = []
+    
+    # Dictionary untuk menampung Summary per Utterance
+    rekap_per_ujaran = {}
+    
     for filename in audio_files:
+        utterance_id = ekstrak_id_ujaran(filename)
+        
+        if not utterance_id:
+            continue
+            
+        print("-" * 55)
+        print(f"Memproses Rekaman: {filename}")
+        
+        teks_referensi = ground_truth.get(utterance_id)
+        if not teks_referensi:
+            print(f"   [WARNING] Kunci jawaban untuk {utterance_id} belum ada di JSON! Melewati...")
+            continue
+            
         audio_path = os.path.join(AUDIO_DIR, filename)
-        utterance_id = get_utterance_id(filename)
-        ref_text = reference.get(utterance_id, None)
-
-        print(f"\nProcessing: {filename}")
-        print(f"Utterance ID: {utterance_id}")
-        print(f"Reference: {ref_text}")
-
+        
+        with open(audio_path, "rb") as f:
+            audio_bytes = f.read()
+        
         for mode in ["normalize", "preserve"]:
-            if(filename, mode) in processed:
-                print(f" Mode: {mode} - skipped (already preprocessed) ")
-                continue
-            print(f"\n  Mode: {mode}")
+            print(f"\n>> Menguji Mode : {mode.upper()}")
+            
             try:
-                result = run_pipeline(audio_path, mode)
-
-                transcript = result["transcript"]
-                print(f"  Transcript: {transcript}")
-                print(f"  Response: {result['response']}")
-                print(f"  STT latency: {result['stt_latency']}s")
-                print(f"  LLM latency: {result['llm_latency']}s")
-                print(f"  TTS latency: {result['tts_latency']}s")
-                print(f"  Total latency: {result['total_latency']}s")
-
-                if ref_text:
-                    word_error = wer(ref_text.lower(), transcript.lower())
-                    char_error = cer(ref_text.lower(), transcript.lower())
-                    print(f"  WER: {round(word_error, 4)}")
-                    print(f"  CER: {round(char_error, 4)}")
-                    wer_scores.append(word_error)
-                    cer_scores.append(char_error)
-                else:
-                    word_error = None
-                    char_error = None
-                    print(f"  WER/CER: no reference found for {utterance_id}")
-
-                results.append({
-                    "filename": filename,
+                waktu_mulai = time.time()
+                
+                # STT
+                waktu_stt_mulai = time.time()
+                teks_prediksi = transcribe_speech_to_text(audio_bytes, ".wav")
+                durasi_stt = time.time() - waktu_stt_mulai
+                
+                # LLM
+                waktu_llm_mulai = time.time()
+                teks_balasan = generate_response(teks_prediksi, mode)
+                durasi_llm = time.time() - waktu_llm_mulai
+                
+                # TTS
+                waktu_tts_mulai = time.time()
+                audio_balasan_path = transcribe_text_to_speech(teks_balasan)
+                durasi_tts = time.time() - waktu_tts_mulai
+                
+                durasi_total = time.time() - waktu_mulai
+                
+                ref_bersih = teks_referensi.lower()
+                pred_bersih = teks_prediksi.lower()
+                
+                nilai_wer = wer(ref_bersih, pred_bersih)
+                nilai_cer = cer(ref_bersih, pred_bersih)
+                
+                wer_list.append(nilai_wer)
+                cer_list.append(nilai_cer)
+                
+                # Masukkan data ke Rekap Per Ujaran
+                if utterance_id not in rekap_per_ujaran:
+                    rekap_per_ujaran[utterance_id] = {'wer': [], 'cer': [], 'latency': []}
+                rekap_per_ujaran[utterance_id]['wer'].append(nilai_wer)
+                rekap_per_ujaran[utterance_id]['cer'].append(nilai_cer)
+                rekap_per_ujaran[utterance_id]['latency'].append(durasi_total)
+                
+                print(f"   Teks Asli   : {teks_referensi}")
+                print(f"   Tebakan STT : {teks_prediksi}")
+                print(f"   WER / CER   : {nilai_wer:.2f} / {nilai_cer:.2f}")
+                print(f"   Waktu Total : {durasi_total:.2f} detik")
+                
+                hasil_evaluasi.append({
+                    "file": filename,
                     "utterance_id": utterance_id,
                     "mode": mode,
-                    "reference": ref_text,
-                    "transcript": transcript,
-                    "response": result["response"],
-                    "audio_output": result["audio_output"],
-                    "wer": round(word_error, 4) if word_error is not None else None,
-                    "cer": round(char_error, 4) if char_error is not None else None,
-                    "stt_latency": result["stt_latency"],
-                    "llm_latency": result["llm_latency"],
-                    "tts_latency": result["tts_latency"],
-                    "total_latency": result["total_latency"]
+                    "wer": round(nilai_wer, 4),
+                    "cer": round(nilai_cer, 4),
+                    "latency_stt": round(durasi_stt, 2),
+                    "latency_llm": round(durasi_llm, 2),
+                    "latency_tts": round(durasi_tts, 2),
+                    "latency_total": round(durasi_total, 2)
                 })
-                save_checkpoint(results)
-
+                
             except Exception as e:
-                print(f"  [ERROR] {e}")
-                results.append({
-                    "filename": filename,
-                    "utterance_id": utterance_id,
-                    "mode": mode,
-                    "error": str(e)
-                })
+                print(f"   [ERROR] Sistem gagal memproses: {e}")
 
-    # Summary
-    print("\n" + "=" * 60)
-    print("SUMMARY")
-    print("=" * 60)
-    if wer_scores:
-        avg_wer = round(sum(wer_scores) / len(wer_scores), 4)
-        avg_cer = round(sum(cer_scores) / len(cer_scores), 4)
-        print(f"Average WER: {avg_wer}")
-        print(f"Average CER: {avg_cer}")
+    # Menghitung Summary Keseluruhan
+    rata_wer_global = sum(wer_list) / len(wer_list) if wer_list else 0
+    rata_cer_global = sum(cer_list) / len(cer_list) if cer_list else 0
+    
+    print("\n" + "=" * 55)
+    print("RINGKASAN PER UJARAN (UTTERANCE)")
+    print("=" * 55)
+    
+    summary_per_ujaran_final = {}
+    
+    urutan_id = sorted(rekap_per_ujaran.keys(), key=lambda x: int(x.replace('audio', '')))
+    
+    for uid in urutan_id:
+        data = rekap_per_ujaran[uid]
+        avg_wer = sum(data['wer']) / len(data['wer']) if data['wer'] else 0
+        avg_cer = sum(data['cer']) / len(data['cer']) if data['cer'] else 0
+        avg_latency = sum(data['latency']) / len(data['latency']) if data['latency'] else 0
+        
+        summary_per_ujaran_final[uid] = {
+            "rata_rata_wer": round(avg_wer, 4),
+            "rata_rata_cer": round(avg_cer, 4),
+            "rata_rata_waktu_total": round(avg_latency, 2)
+        }
+        print(f"[{uid.upper()}] -> WER: {avg_wer:.4f} | CER: {avg_cer:.4f} | Avg Waktu: {avg_latency:.2f}s")
 
-    latencies = [r["total_latency"] for r in results if "total_latency" in r]
-    if latencies:
-        avg_latency = round(sum(latencies) / len(latencies), 2)
-        print(f"Average total latency: {avg_latency}s")
-
-    # Simpan hasil
-    output_file = os.path.join(RESULTS_DIR, f"pipeline_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-    with open(output_file, "w", encoding="utf-8") as f:
+    print("\n" + "=" * 55)
+    print("RINGKASAN SKOR AKHIR GLOBAL")
+    print("=" * 55)
+    print(f"Total File Dievaluasi : {len(hasil_evaluasi)}")
+    print(f"Rata-rata WER Global  : {rata_wer_global:.4f}")
+    print(f"Rata-rata CER Global  : {rata_cer_global:.4f}")
+    
+    # Cetak laporan ke JSON
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    nama_laporan = os.path.join(RESULTS_DIR, f"laporan_akhir_{timestamp}.json")
+    
+    with open(nama_laporan, "w", encoding="utf-8") as f:
         json.dump({
-            "summary": {
-                "total_files": len(audio_files),
-                "average_wer": avg_wer if wer_scores else None,
-                "average_cer": avg_cer if wer_scores else None,
-                "average_latency": avg_latency if latencies else None
+            "summary_global": {
+                "total_evaluasi": len(hasil_evaluasi),
+                "rata_rata_wer": round(rata_wer_global, 4),
+                "rata_rata_cer": round(rata_cer_global, 4)
             },
-            "results": results
-        }, f, ensure_ascii=False, indent=2)
-
-    print(f"\nResults saved to: {output_file}")
+            "summary_per_utterance": summary_per_ujaran_final,
+            "detail_per_audio": hasil_evaluasi
+        }, f, indent=4)
+        
+    print(f"\n[INFO] Laporan evaluasi lengkap telah disimpan ke: {nama_laporan}")
 
 if __name__ == "__main__":
     main()
